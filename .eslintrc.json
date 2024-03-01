@@ -36,7 +36,7 @@
     "react/prop-types": "off",
     "no-use-before-define": "off",
     "react/react-in-jsx-scope": "off",
-    "max-len": ["warn", { "code": 90 }],
+    "max-len": ["warn", { "code": 100 }],
     "import/prefer-default-export": "off",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
