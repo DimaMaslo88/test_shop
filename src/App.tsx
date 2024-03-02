@@ -7,13 +7,16 @@ import {useAppDispatch} from "bll/store";
 import {useSelector} from "react-redux";
 import {ColorRing} from "react-loader-spinner";
 import {selectSpinner} from "bll/selectors";
+import {ItemsPage} from "ui/component/itemsPage";
 
 function App() {
     const dispatch = useAppDispatch()
     const isLoading = useSelector(selectSpinner)
     const data = {
         action: "get_ids",
-        params: {}
+        params: {
+            limit:50
+        }
     }
     // const itemsData ={
     //
@@ -55,7 +58,7 @@ function App() {
                 <div>Loading...</div>
             </div>}
 
-            hello
+            <ItemsPage/>
         </div>
     );
 }

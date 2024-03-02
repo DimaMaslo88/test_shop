@@ -1,23 +1,23 @@
-import {ItemsReducerType} from "bll/types/bll-types";
-import {SetItemsIdType} from "bll/actions/item-actions";
+import {ItemsReducerType, SingleItemType} from "bll/types/bll-types";
+import {SetItemsIdType, SetItemsType} from "bll/actions/item-actions";
 
 export const ItemsReducerState = {
     items:[
-        {
-        brand: null,
-        id: "1789ecf3-f81c-4f49-ada2-83804dcc74b0",
-        price: 16700.0,
-        product: "Золотое кольцо с бриллиантами"
-    }
+        { } as SingleItemType
     ],
     itemsId:[]
 }
-export type ItemsReducerActionsType = SetItemsIdType
+export type ItemsReducerActionsType = SetItemsIdType|
+    SetItemsType
+
 
 export const ItemsReducer =(state:ItemsReducerType=ItemsReducerState,action:ItemsReducerActionsType):ItemsReducerType=>{
     switch (action.type){
         case "SET-ITEMS-ID":{
             return {...state,itemsId:[...state.itemsId,...action.ids]}
+        }
+        case "SET-ITEMS":{
+            return {...state,items:[...state.items,...action.items]}
         }
         default:
             return state

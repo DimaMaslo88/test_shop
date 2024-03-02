@@ -1,14 +1,14 @@
 // items types
 export type SingleItemType = {
 
-        brand:null
-        id:string,
-        price:number,
-        product:string
+    brand: null | string
+    id: string,
+    price: null | number
+    product: string
 
 
 }
 export type ItemsReducerType = {
-    items:SingleItemType[]
-    itemsId:string[]
+    items: SingleItemType[]
+    itemsId: string[]
 }
