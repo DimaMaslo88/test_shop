@@ -10,5 +10,5 @@ export type SingleItemType = {
 }
 export type ItemsReducerType = {
     items: SingleItemType[]
-    itemsId: string[]
+   // itemsId: string[]
 }

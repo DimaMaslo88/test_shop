@@ -1,12 +1,27 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {useSelector} from "react-redux";
 import {selectItems} from "bll/selectors";
 import {SingleItemType} from "bll/types/bll-types";
 import style from 'styles/itemsPage.module.scss'
 
-export const ItemsPage = () => {
+export const ItemsPage =React.memo( () => {
     const items = useSelector(selectItems)
-    const rows = items.map(({brand,id,product,price}:SingleItemType)=> (
+    const [uniqueIds, setUniqueIds] = useState<{ [key: string]: boolean }>({});
+
+    // Функция для проверки уникальности id
+    const checkUniqueId = (id:string) => {
+        if (uniqueIds[id]) {
+            return false; // Дубликат id
+        }
+            setUniqueIds(prevIds => ({ ...prevIds, [id]: true }));
+            return true; // Уникальный id
+
+    };
+debugger
+    // Фильтрация товаров по уникальным id
+   // const uniqueProducts = items.filter(item => checkUniqueId(item.id));
+    //
+    const rows = items.filter(item => checkUniqueId(item.id)).map(({brand,id,product,price}:SingleItemType)=> (
        <tr key={id}>
             <td >{brand}</td>
             <td>{price}</td>
@@ -39,5 +54,7 @@ export const ItemsPage = () => {
     //         ))}
     //     </div>
     // );
-};
+}
+    )
+;
 
