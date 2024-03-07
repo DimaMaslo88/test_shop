@@ -1,60 +1,45 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {useSelector} from "react-redux";
-import {selectItems} from "bll/selectors";
+import {selectCurrenPage, selectElementsOnPage, selectItems} from "bll/selectors";
 import {SingleItemType} from "bll/types/bll-types";
 import style from 'styles/itemsPage.module.scss'
+import {ContentPagination} from "ui/component/pagination/pagination";
 
-export const ItemsPage =React.memo( () => {
-    const items = useSelector(selectItems)
-    const [uniqueIds, setUniqueIds] = useState<{ [key: string]: boolean }>({});
+export const ItemsPage = React.memo(() => {
+            const items = useSelector(selectItems)
+            const currentPage = useSelector(selectCurrenPage)
+            const elementOnPage = useSelector(selectElementsOnPage)
+            const totalItems = items.length
+            const lastItemsIndex = currentPage * elementOnPage
+            const firstItemsIndex = lastItemsIndex - elementOnPage
+            const currentItems = items.slice(firstItemsIndex, lastItemsIndex)
+            const rows = currentItems.map(({brand, id, product, price}: SingleItemType) => (
+                <tbody key={id}>
+                <tr>
+                    <td>{id}</td>
+                    <td>{brand}</td>
+                    <td>{price}</td>
+                    <td>{product}</td>
+                </tr>
+                </tbody>
+            ));
+            return <div>
+        <table className={style.tableContainer}>
+                <thead>
+                <tr className={style.trContainer}>
+                    <td>Id</td>
+                    <td>Бренд</td>
+                    <td>Стоимость</td>
+                    <td>Продукт</td>
 
-    // Функция для проверки уникальности id
-    const checkUniqueId = (id:string) => {
-        if (uniqueIds[id]) {
-            return false; // Дубликат id
+                </tr>
+                </thead>
+                {rows}
+
+            </table>;
+        <ContentPagination elementOnPage={elementOnPage} currentPage={currentPage} totalItems={totalItems}/>
+            </div>
         }
-            setUniqueIds(prevIds => ({ ...prevIds, [id]: true }));
-            return true; // Уникальный id
-
-    };
-debugger
-    // Фильтрация товаров по уникальным id
-   // const uniqueProducts = items.filter(item => checkUniqueId(item.id));
-    //
-    const rows = items.filter(item => checkUniqueId(item.id)).map(({brand,id,product,price}:SingleItemType)=> (
-       <tr key={id}>
-            <td >{brand}</td>
-            <td>{price}</td>
-            <td>{product}</td>
-        </tr>
-));
-    return <table className={style.tableContainer}>
-        <thead>
-        <tr className={style.trContainer}>
-            <td>Бренд</td>
-            <td>Стоимость</td>
-            <td>Продукт</td>
-        </tr>
-        </thead>
-        <tbody>
-        {rows}
-        </tbody>
-    </table>;
-    // (
-    //     <div>
-    //         {items.map(({brand,id,price,product}:SingleItemType)=>(
-    //             <ul  className={style.ulContainer}>
-    //                <li key={id}>
-    //                    {brand}
-    //                    {price}
-    //                    {product}
-    //                </li>
-    //
-    //             </ul>
-    //         ))}
-    //     </div>
-    // );
-}
     )
 ;
 

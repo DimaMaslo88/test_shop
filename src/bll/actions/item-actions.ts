@@ -8,9 +8,14 @@ import {SingleItemType} from "bll/types/bll-types";
 //     }as const
 // }
 export type SetItemsType = ReturnType<typeof setItems>
-export const setItems = (items:SingleItemType[])=>{
+export const setItems = (items: SingleItemType[]) => {
     return {
-        type:"SET-ITEMS",
+        type: "SET-ITEMS",
         items
-    }as const
+    } as const
 }
+export type SetCurrentPageType = ReturnType<typeof setCurrentPage>
+export const setCurrentPage = (page: number) => ({
+    type: 'SET-CURRENT-PAGE',
+    page
+} as const)

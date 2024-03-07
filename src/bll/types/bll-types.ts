@@ -10,5 +10,7 @@ export type SingleItemType = {
 }
 export type ItemsReducerType = {
     items: SingleItemType[]
+    page:number
+    elementsOnPage:number
    // itemsId: string[]
 }

@@ -1,14 +1,17 @@
 import {ItemsReducerType, SingleItemType} from "bll/types/bll-types";
-import { SetItemsType} from "bll/actions/item-actions";
+import {SetCurrentPageType, SetItemsType} from "bll/actions/item-actions";
 
 export const ItemsReducerState = {
     items:[
         { } as SingleItemType
     ],
+    page:1,
+    elementsOnPage:50
     // itemsId:[]
 }
-export type ItemsReducerActionsType =
-    SetItemsType
+export type ItemsReducerActionsType = SetItemsType|
+    SetCurrentPageType
+
 
 
 export const ItemsReducer =(state:ItemsReducerType=ItemsReducerState,action:ItemsReducerActionsType):ItemsReducerType=>{
@@ -18,6 +21,9 @@ export const ItemsReducer =(state:ItemsReducerType=ItemsReducerState,action:Item
         // }
         case "SET-ITEMS":{
             return {...state,items:[...state.items,...action.items]}
+        }
+        case "SET-CURRENT-PAGE":{
+            return {...state,page:action.page}
         }
         default:
             return state
