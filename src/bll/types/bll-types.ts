@@ -12,5 +12,9 @@ export type ItemsReducerType = {
     items: SingleItemType[]
     page:number
     elementsOnPage:number
+    value:number
+    title:string
+    actions:string
+    brand:string
    // itemsId: string[]
 }

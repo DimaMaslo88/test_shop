@@ -1,18 +1,25 @@
 import React, {useEffect} from 'react';
 
 import './App.css';
-import {GetItemsIdThunk} from "dal/thunk/ItemsThunk";
+import {GetFieldsTitle, GetItemsIdThunk} from "dal/thunk/ItemsThunk";
 import {useAppDispatch} from "bll/store";
 import style from 'styles/app.module.scss'
 import {useSelector} from "react-redux";
 import {ColorRing} from "react-loader-spinner";
-import {selectSpinner} from "bll/selectors";
+import {selectActions, selectSpinner} from "bll/selectors";
 import {ItemsPage} from "ui/component/itemsPage";
 
 
 function App() {
     const dispatch = useAppDispatch()
     const isLoading = useSelector(selectSpinner)
+    const actionsParams = useSelector(selectActions)
+    const getField = {
+        action:'get_fields',
+        params:{
+            field:actionsParams
+        }
+    }
     const data = {
         action: "get_ids",
         params: {
@@ -25,6 +32,13 @@ function App() {
         dispatch(GetItemsIdThunk(data))
 
     }, [])
+
+
+        useEffect(()=>{
+            if(actionsParams)
+            dispatch(GetFieldsTitle(getField))
+        },[actionsParams])
+
 
 
     return (

@@ -11,6 +11,23 @@ export type ItemsDataType = {
         ids: string[]
     }
 }
+export type FieldDataType = {
+    action: string
+    params: {
+        field: string,
+        offset?: number,
+        limit?: number
+    }
+}
+export type FilterDataType={
+    action:string,
+    params:{
+        price?:number,
+         product?:string,
+         brand?:null|string
+       // field:number|string
+    }
+}
 
 
 // RESPONSE TYPES
@@ -19,11 +36,16 @@ export type getItemsIdsType = {
     result: string[]
 
 }
+// типизация  возвращаемого значения, по запросу fields
+export type getFieldsType = {
+    result: string | number
+}
+export type getFieldType={
+
+}
 // типизация возвращаемого значения, по запросу items
 export type getItemsType = {
     result: getItemType[]
-
-
 }
 export type getItemType = {
     brand: null | string

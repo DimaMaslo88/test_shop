@@ -18,3 +18,5 @@ export const selectItems = createSelector(
 );
 export const selectCurrenPage=(state:StateType):number=>state.items.page
 export const selectElementsOnPage =(state:StateType):number=>state.items.elementsOnPage
+export const selectValue = (state:StateType):number=>state.items.value
+export const selectActions = (state:StateType):string=>state.items.actions
