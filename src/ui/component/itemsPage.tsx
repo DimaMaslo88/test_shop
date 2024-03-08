@@ -35,21 +35,18 @@ export const ItemsPage = React.memo(() => {
     }
 
     const onClickHandlerTitle=()=>{
-        debugger
         dispatch(changeFilterActions('product'))
         dispatch(changeFilterTitle(title))
         setTitle('')
 
     }
         const onClickHandlerValue=()=>{
-            debugger
             dispatch(changeFilterActions('price'))
             dispatch(changeFilterValue(value))
             setValue(0)
 
         }
         const onClickHandlerBrand=()=>{
-            debugger
             dispatch(changeFilterActions('brand'))
             dispatch(changeFilterBrand(brandValue))
             setBrandValue('')
