@@ -6,8 +6,10 @@ import {useAppDispatch} from "bll/store";
 import style from 'styles/app.module.scss'
 import {useSelector} from "react-redux";
 import {ColorRing} from "react-loader-spinner";
-import {selectActions, selectIsError, selectSpinner} from "bll/selectors";
+import {selectActions, selectIsError, selectRequestCounter, selectSpinner} from "bll/selectors";
 import {ItemsPage} from "ui/component/itemsPage";
+import {setRequestCounter} from "bll/actions/app-actions";
+import {Footer} from "ui/component/footer/footer";
 
 
 function App() {
@@ -15,7 +17,9 @@ function App() {
     const isLoading = useSelector(selectSpinner)
     const actionsParams = useSelector(selectActions)
     const isError = useSelector(selectIsError)
-    const getField = {
+    const requestCounter = useSelector(selectRequestCounter) // счетчик для контроля запросов на сервер,если валится ошибка, ограничить число запросов
+
+        const getField = {
         action: 'get_fields',
         params: {
             field: actionsParams
@@ -33,8 +37,9 @@ function App() {
     }, [])
 
     useEffect(() => {
-        if (isError) {
+        if (isError && requestCounter < 5 ) {
             dispatch(GetItemsIdThunk(data))
+            dispatch(setRequestCounter(requestCounter+1))
         }
     }, [isError])
 
@@ -61,6 +66,7 @@ function App() {
 
             </div>
             <ItemsPage/>
+            <Footer/>
         </div>
     );
 }

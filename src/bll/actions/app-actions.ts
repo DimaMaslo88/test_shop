@@ -12,3 +12,10 @@ export const setError = (isError:boolean)=>{
         isError
     }as const
 }
+export type SetRequestCounterType = ReturnType<typeof setRequestCounter>
+export const setRequestCounter = (count:number)=>{
+    return {
+        type:"SET-REQUEST-COUNTER",
+        count
+    }as const
+}

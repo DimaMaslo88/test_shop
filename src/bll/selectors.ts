@@ -21,3 +21,4 @@ export const selectElementsOnPage =(state:StateType):number=>state.items.element
 export const selectValue = (state:StateType):number=>state.items.value
 export const selectActions = (state:StateType):string=>state.items.actions
 export const selectIsError =(state:StateType):boolean=>state.app.isError
+export const selectRequestCounter=(state:StateType):number=>state.app.requestCounter

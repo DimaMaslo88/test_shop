@@ -22,4 +22,6 @@ export type ItemsReducerType = {
 export type AppReducerType = {
     isLoading: boolean
     isError:boolean
+    requestCounter:number
 }
+
