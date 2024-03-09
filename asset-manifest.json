@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/test_shop/static/css/main.5b4b1416.css",
-    "main.js": "/test_shop/static/js/main.bd4ce2fe.js",
+    "main.css": "/test_shop/static/css/main.1d210273.css",
+    "main.js": "/test_shop/static/js/main.748f26fc.js",
     "static/js/453.64073960.chunk.js": "/test_shop/static/js/453.64073960.chunk.js",
-    "static/media/1709910471_oir-mobi-hbc8-p-kartinki-dlya-fona-saita-21.jpg": "/test_shop/static/media/1709910471_oir-mobi-hbc8-p-kartinki-dlya-fona-saita-21.f25e9d025df6e3f59b80.jpg",
+    "static/media/new.jpg": "/test_shop/static/media/new.a6f05d10c4178b2cd47a.jpg",
     "index.html": "/test_shop/index.html",
-    "main.5b4b1416.css.map": "/test_shop/static/css/main.5b4b1416.css.map",
-    "main.bd4ce2fe.js.map": "/test_shop/static/js/main.bd4ce2fe.js.map",
+    "main.1d210273.css.map": "/test_shop/static/css/main.1d210273.css.map",
+    "main.748f26fc.js.map": "/test_shop/static/js/main.748f26fc.js.map",
     "453.64073960.chunk.js.map": "/test_shop/static/js/453.64073960.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.5b4b1416.css",
-    "static/js/main.bd4ce2fe.js"
+    "static/css/main.1d210273.css",
+    "static/js/main.748f26fc.js"
   ]
 }
