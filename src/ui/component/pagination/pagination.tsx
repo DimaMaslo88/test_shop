@@ -9,8 +9,7 @@ export const ContentPagination = ({totalItems, elementOnPage, currentPage}: Cont
     const pages = []
     for (let i = 1; i <= totalPages; i += 1) {
         pages.push(i)
-        console.log(pages)
-    }
+        }
     const nextPageHandler = () => dispatch(setCurrentPage(currentPage + 1))
     const prevPageHandler = () => dispatch(setCurrentPage(currentPage - 1))
     const prevDisabled = currentPage <= 1

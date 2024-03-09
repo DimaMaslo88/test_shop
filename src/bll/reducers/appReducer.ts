@@ -1,16 +1,21 @@
-import {SetSpinnerType} from "bll/actions/app-actions";
+import {SetErrorType, SetSpinnerType} from "bll/actions/app-actions";
+import {AppReducerType} from "bll/types/bll-types";
 
 export const appReducerState = {
-    isLoading: false
+    isLoading: false,
+    isError:false
+
 }
-export type AppReducerType = {
-    isLoading: boolean
-}
-export type AppReducerActionType = SetSpinnerType
+
+export type AppReducerActionType = SetSpinnerType|
+    SetErrorType
 export const AppReducer = (state: AppReducerType = appReducerState, action: AppReducerActionType): AppReducerType => {
     switch (action.type) {
         case "SET-SPINNER": {
             return {...state, isLoading: action.value}
+        }
+        case "SET-ERROR":{
+            return {...state,isError:action.isError}
         }
         default:
             return state

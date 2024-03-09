@@ -16,5 +16,10 @@ export type ItemsReducerType = {
     title:string
     actions:string
     brand:string
-   // itemsId: string[]
+
+}
+// app-reducer type
+export type AppReducerType = {
+    isLoading: boolean
+    isError:boolean
 }

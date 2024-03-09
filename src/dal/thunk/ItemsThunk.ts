@@ -2,7 +2,7 @@ import {AppThunkType, StateType} from "bll/store";
 import {ItemsApi} from "dal/api/items-api";
 import {DataType, FieldDataType, FilterDataType, ItemsDataType} from "bll/types/api-types";
 import {setItems} from "bll/actions/item-actions";
-import {setSpinner} from "bll/actions/app-actions";
+import {setError, setSpinner} from "bll/actions/app-actions";
 
 export const GetItemsThunk = (itemData: ItemsDataType): AppThunkType => async (dispatch) => {
     dispatch(setSpinner(true))
@@ -13,6 +13,7 @@ export const GetItemsThunk = (itemData: ItemsDataType): AppThunkType => async (d
 
     } catch (err) {
         console.log(err)
+        dispatch(setError(true))
     } finally {
         dispatch(setSpinner(false))
     }
@@ -33,6 +34,7 @@ export const GetItemsIdThunk = (data: DataType): AppThunkType => async (dispatch
 
     } catch (err) {
         console.log(err)
+        dispatch(setError(true))
     }
 }
 
@@ -52,6 +54,7 @@ export const FilterItems = (filterData: FilterDataType): AppThunkType => async (
         }
     } catch (err) {
         console.log(err)
+        dispatch(setError(true))
     } finally {
         dispatch(setSpinner(false))
     }
@@ -79,6 +82,7 @@ export const GetFieldsTitle = (fieldData: FieldDataType): AppThunkType =>
                     }
                 } catch (err) {
                     console.log(err)
+                    dispatch(setError(true))
                 }
             } else if (getState().items.actions === 'price') {
                 const dataValue = {
@@ -96,6 +100,7 @@ export const GetFieldsTitle = (fieldData: FieldDataType): AppThunkType =>
                     }
                 } catch (err) {
                     console.log(err)
+                    dispatch(setError(true))
                 }
             } else if (getState().items.actions === 'brand') {
                 const dataBrand = {
@@ -112,6 +117,7 @@ export const GetFieldsTitle = (fieldData: FieldDataType): AppThunkType =>
                     }
                 } catch (err) {
                     console.log(err)
+                    dispatch(setError(true))
                 }
             }
         }
