@@ -6,7 +6,7 @@ import style from 'styles/itemsPage.module.scss'
 import {ContentPagination} from "ui/component/pagination/pagination";
 import {useAppDispatch} from "bll/store";
 import {changeFilterActions, changeFilterBrand, changeFilterTitle, changeFilterValue} from "bll/actions/item-actions";
-
+import {v4 as uuidv4} from 'uuid'
 
 export const ItemsPage = React.memo(() => {
     const dispatch = useAppDispatch()
@@ -54,7 +54,7 @@ export const ItemsPage = React.memo(() => {
         }
 
             const rows = currentItems.map(({brand, id, product, price}: SingleItemType) => (
-                <tbody key={id}>
+                <tbody key={uuidv4()}>
                 <tr className={style.trContainer}>
                     <td className={style.td}>{id}</td>
                     <td className={style.td}>{brand}</td>
