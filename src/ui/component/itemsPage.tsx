@@ -17,7 +17,6 @@ export const ItemsPage = React.memo(() => {
             const lastItemsIndex = currentPage * elementOnPage
             const firstItemsIndex = lastItemsIndex - elementOnPage
             const currentItems = items.slice(firstItemsIndex, lastItemsIndex)
-
     const [title,setTitle]=useState<string>('')
     const [value,setValue]=useState<number>(0)
     const [brandValue,setBrandValue] =useState<string>('')
@@ -38,19 +37,16 @@ export const ItemsPage = React.memo(() => {
         dispatch(changeFilterActions('product'))
         dispatch(changeFilterTitle(title))
         setTitle('')
-
     }
         const onClickHandlerValue=()=>{
             dispatch(changeFilterActions('price'))
             dispatch(changeFilterValue(value))
             setValue(0)
-
-        }
+       }
         const onClickHandlerBrand=()=>{
             dispatch(changeFilterActions('brand'))
             dispatch(changeFilterBrand(brandValue))
             setBrandValue('')
-
         }
 
             const rows = currentItems.map(({brand, id, product, price}: SingleItemType) => (
@@ -95,11 +91,9 @@ export const ItemsPage = React.memo(() => {
                     <td className={style.tD}>Бренд</td>
                     <td className={style.tD}>Стоимость</td>
                     <td className={style.tD}>Продукт</td>
-
                 </tr>
                 </thead>
                 {rows}
-
             </table>
                 </div>
         <ContentPagination elementOnPage={elementOnPage} currentPage={currentPage} totalItems={totalItems}/>

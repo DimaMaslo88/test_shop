@@ -39,7 +39,7 @@
   height: 100%;
   margin: 30px;
   background-color: $bgColor6;
-  border-radius: 5px;
+  border-radius: 10px;
   .table{
     width: 95%;
     height: 100%;
@@ -49,8 +49,12 @@
    .td{
      border: 3px solid white;
      border-radius: 4px;
-     box-shadow: 5px 2px 2px #1C1C1E;
+     height: 30px;
      @include text($titleFontFamily,20px,500)
+   }
+   .td:hover{
+     box-shadow: 6px 2px 2px #1C1C1E;
+     height: 33px;
    }
  }
 }

@@ -28,18 +28,14 @@ function App() {
     }
 
     useEffect(() => {
-        debugger
         dispatch(GetItemsIdThunk(data))
 
     }, [])
-
 
         useEffect(()=>{
             if(actionsParams)
             dispatch(GetFieldsTitle(getField))
         },[actionsParams])
-
-
 
     return (
         <div>

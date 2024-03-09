@@ -31,7 +31,6 @@ export const ContentPagination = ({totalItems, elementOnPage, currentPage}: Cont
                     disabled={nextDisabled}
                     className={nextDisabled?style.disabledButton:style.button
                     }>Вперед</button>
-
         </div>
 
     );
