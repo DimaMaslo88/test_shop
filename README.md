@@ -10,4 +10,4 @@
 ### чтобы запустить его.
 
 #### С демоверсией тестового проекта можно ознакомиться 
-http://dimamaslo88.github.io/test_shop/
+https://dimamaslo88.github.io/test_shop/
