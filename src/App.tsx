@@ -1,5 +1,4 @@
 import React, {useEffect} from 'react';
-
 import './App.css';
 import {GetFieldsTitle, GetItemsIdThunk} from "dal/thunk/ItemsThunk";
 import {useAppDispatch} from "bll/store";
