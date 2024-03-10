@@ -60,6 +60,7 @@ export const ItemsPage = React.memo(() => {
                 </tbody>
             ));
             return <div>
+
                 <div className={style.searchBlock}>
                     <div className={style.inputBlock}>
                 <input placeholder='фильтр по названию' value={title} onChange={onChangeHandlerTitle} className={style.input}/>
@@ -83,6 +84,7 @@ export const ItemsPage = React.memo(() => {
                 >Поиск</button>
                     </div>
                 </div>
+
                 <div className={style.tableContainer}>
         <table className={style.table} >
                 <thead className={style.theadContainer}>
