@@ -1,5 +1,4 @@
 import {StateType} from "bll/store";
-import {SingleItemType} from "bll/types/bll-types";
 import {createSelector} from "reselect";
 
 

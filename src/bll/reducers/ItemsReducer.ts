@@ -29,9 +29,6 @@ export type ItemsReducerActionsType = SetItemsType |
 
 export const ItemsReducer = (state: ItemsReducerType = ItemsReducerState, action: ItemsReducerActionsType): ItemsReducerType => {
     switch (action.type) {
-        // case "SET-ITEMS-ID":{
-        //     return {...state,itemsId:[...state.itemsId,...action.ids]}
-        // }
         case "SET-ITEMS": {
             return {...state, items: action.items}
         }

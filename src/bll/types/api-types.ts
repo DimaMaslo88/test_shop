@@ -53,8 +53,4 @@ export type getItemType = {
     price: null | number,
     product: string
 }
-// типизация error
-export type ErrorType = {
-    status: number
-    statusText: string
-}
+
